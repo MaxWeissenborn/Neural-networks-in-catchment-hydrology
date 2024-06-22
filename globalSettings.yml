@@ -1,0 +1,21 @@
+use_gpu: True # Whether to use GPU or CPU
+bs: [256, 2048] # Batch-size for training updates
+epochs: [60]
+runs: 100
+seed: 134 # Seed for all randomized parameters and processes
+lr: 0.001 # learning rate (ineffective due to learning rate schedular)
+train_samples: 54 # How many Rivers are used for the training data
+test_samples: 35 # How many Rivers are used as test data
+validation: False # if training should be validated with a part of the training dataset
+testing: True # if training should be tested with a complete unknown data set
+run_models: ["CNN", "GRU", "LSTM"] if not specified all models within model directory will be run
+path_to_training_df: # specify path to preprocessed dataframe
+  "-SF": "preprocessing/output/-SF - NO NA - TRAINING - Complete River Data as Dataframe.pkl"
+  "+ESF": "preprocessing/output/+ESF - NO NA - TRAINING - Complete River Data as Dataframe.pkl"
+path_to_testing_df: 
+  "-SF": "preprocessing/output/-SF - NO NA - TESTING NOT FOR TRAIN - Complete River Data as Dataframe - 1997 - 2002.pkl"
+  "+ESF": "preprocessing/output/+ESF - NO NA - TESTING NOT FOR TRAIN - Complete River Data as Dataframe - 1997 - 2002.pkl"
+target_name: "dis_mm" # Name of the target column in the training
+console_logging: True # Whether to show or hide logs within terminal
+line_plotting: False # whether a line plot for each sample should be generated
+delete_data_bases: False # whether the created databases should be deleted after training
